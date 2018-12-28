@@ -6,19 +6,23 @@ const url = 'mongodb://localhost:27017/intro-mongodb-testing'
 global.newId = () => {
   return mongoose.Types.ObjectId()
 }
-
+console.log('######################################')
 beforeEach(async done => {
+ 
   const db = cuid()
   function clearDB() {
+   
     for (var i in mongoose.connection.collections) {
+      
       mongoose.connection.collections[i].remove(function() {})
     }
     return done()
   }
   if (mongoose.connection.readyState === 0) {
     try {
-      await connect(url + db)
+      await connect(url)
       clearDB()
+      
     } catch (e) {
       throw e
     }
@@ -31,5 +35,6 @@ afterEach(done => {
   return done()
 })
 afterAll(done => {
+  mongoose.connection.db.collections()
   return done()
 })

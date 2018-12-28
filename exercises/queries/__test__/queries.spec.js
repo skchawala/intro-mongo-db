@@ -37,6 +37,7 @@ describe('queries', () => {
         contentLength: 50
       })
       const [match] = await postsForAuthor(author)
+     
       expect(match.author.toString()).toBe(post.author.toString())
     })
   })

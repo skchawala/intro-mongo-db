@@ -4,6 +4,7 @@ const crud = require('../crud')
 describe('User crud', () => {
   describe('getUserById', () => {
     test('get user by object id', async () => {
+      console.log('------------1.get user by object id------------')
       const user = await User.create({
         firstName: 'Nemo',
         lastName: 'Nemo',
@@ -40,6 +41,7 @@ describe('User crud', () => {
     })
   })
   describe('createUser', () => {
+    console.log('------------2.create a user------------')
     test('create a user', async () => {
       const userConfig = {
         firstName: 'Nemo',
@@ -53,6 +55,7 @@ describe('User crud', () => {
   })
   describe('removeUserById', () => {
     test('remove user by id', async () => {
+      console.log('------------3.remove user by id------------')
       const {id} = await User.create({
         firstName: 'Nemo',
         lastName: 'Nemo',
@@ -65,6 +68,7 @@ describe('User crud', () => {
   })
   describe('updateUserById', () => {
     test('update user by id', async () => {
+      console.log('------------4.update user by id------------')
       const {id} = await User.create({
         firstName: 'Nemo',
         lastName: 'Nemo',
